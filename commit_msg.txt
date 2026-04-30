@@ -1,0 +1,6 @@
+feat(core): implement Mission-Critical Incident Management System
+
+- **Backend**: Async ingestion buffer, Redis Rate Limiting, and MongoDB batching (Backpressure handling).
+- **Workflow**: Strategy pattern for dynamic P0/P3 alerting and State pattern for incident lifecycle.
+- **Frontend**: Real-time polling Dashboard with RCA (Root Cause Analysis) enforcement.
+- **Docs**: Comprehensive SRE-focused architecture and setup instructions.
