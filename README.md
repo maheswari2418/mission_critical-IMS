@@ -4,15 +4,8 @@
 The system is built as a resilient pipeline combining Node.js (Express), Redis, PostgreSQL, and MongoDB. It uses an asynchronous queue and debouncing logic to ingest up to 10k signals/sec.
 
 ### Diagram
-```mermaid
-graph TD
-    A[Producer/API] -->|Rate Limited Ingest| B(Express Server)
-    B -->|Debounce & Track| C[(Redis Cache)]
-    B -->|Async Write 10s Batch| D[(MongoDB - Data Lake)]
-    B -->|Create WorkItem| E[(PostgreSQL - Source of Truth)]
-    B -->|Notify| F[Strategy Pattern Alerting]
-    E -->|Fetch| G[Frontend UI]
-```
+<img width="1536" height="1024" alt="ChatGPT Image Apr 30, 2026, 02_05_40 PM" src="https://github.com/user-attachments/assets/7596c310-6ede-48c8-ac2d-2a966d94f9d9" />
+
 
 ## Handling Backpressure & High-Throughput
 To handle 10,000 signals/sec without crashing the RDBMS or dropping packets:
